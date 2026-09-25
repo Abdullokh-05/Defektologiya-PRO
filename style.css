@@ -1350,6 +1350,26 @@ button, input, select, textarea {
   font-size: 0.95rem;
 }
 
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9FB2C4;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  margin-top: 0.25rem;
+  width: fit-content;
+}
+
+.footer-phone:hover {
+  color: var(--cream);
+}
+
+.footer-phone svg {
+  flex-shrink: 0;
+}
+
 .footer-contacts {
   display: flex;
   flex-direction: column;

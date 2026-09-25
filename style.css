@@ -806,7 +806,7 @@ button, input, select, textarea {
 }
 
 .section-certificates .section-title {
-  color: var(--cream);
+  color: var(--gold);
 }
 
 .section-certificates .section-subtitle {
@@ -822,8 +822,8 @@ button, input, select, textarea {
 }
 
 .cert-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(173, 126, 43, 0.2);
+  background: var(--cream);
+  border: 1px solid rgba(173, 126, 43, 0.25);
   border-radius: 18px;
   padding: 2.25rem 1.75rem;
   text-align: center;

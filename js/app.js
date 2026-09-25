@@ -224,4 +224,61 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = false;
     }
   }
+
+  // ==========================================================================
+  // 4. COUNTDOWN TIMER (Tashkent UTC+5)
+  // ==========================================================================
+  (function initCountdown() {
+    const PHASE1_END = new Date("2026-10-01T00:00:00+05:00"); // Phase 1 deadline
+    const PHASE2_END = new Date("2026-10-05T00:00:00+05:00"); // Phase 2 deadline
+
+    const timerEl    = document.getElementById("countdown-timer");
+    const headingEl  = document.getElementById("countdown-heading");
+    const daysEl     = document.getElementById("cd-days");
+    const hoursEl    = document.getElementById("cd-hours");
+    const minutesEl  = document.getElementById("cd-minutes");
+    const secondsEl  = document.getElementById("cd-seconds");
+
+    if (!timerEl || !headingEl) return;
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+
+    function tick() {
+      const now = Date.now();
+
+      if (now < PHASE1_END.getTime()) {
+        // Phase 1 — before Oct 1
+        headingEl.textContent = "Chegirmali narxda ro'yxatdan o'tishga qoldi";
+        const diff = PHASE1_END.getTime() - now;
+        render(diff);
+        timerEl.style.display = "";
+      } else if (now < PHASE2_END.getTime()) {
+        // Phase 2 — Oct 1 → Oct 5
+        headingEl.textContent = "Qabul yopilishiga qoldi:";
+        const diff = PHASE2_END.getTime() - now;
+        render(diff);
+        timerEl.style.display = "";
+      } else {
+        // After Oct 5 — hide entirely
+        timerEl.style.display = "none";
+        clearInterval(intervalId);
+      }
+    }
+
+    function render(diff) {
+      const totalSec = Math.floor(diff / 1000);
+      const days     = Math.floor(totalSec / 86400);
+      const hours    = Math.floor((totalSec % 86400) / 3600);
+      const minutes  = Math.floor((totalSec % 3600) / 60);
+      const seconds  = totalSec % 60;
+
+      daysEl.textContent    = pad(days);
+      hoursEl.textContent   = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    tick(); // run immediately so there's no 1-second blank
+    const intervalId = setInterval(tick, 1000);
+  })();
 });

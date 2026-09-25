@@ -1002,249 +1002,59 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   JOURNEY BLOCK (IMAGE BACKGROUND WITH ABSOLUTE TEXT OVERLAYS)
+   COUNTDOWN TIMER
    ========================================================================== */
-:root {
+.countdown-wrap {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem;
   --ink-soft: #556677;
 }
 
-.journey-container-wrap {
-  margin-top: 4.5rem;
-  padding: 60px 0;
-  width: 100%;
+.countdown-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
-.journey-bg-box {
-  position: relative;
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
-  min-height: 380px;
-  aspect-ratio: 1024 / 571;
-  background-image: url('images/path-desktop.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.countdown-digits {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
-/* Base text group */
-.journey-text-group {
-  position: absolute;
+.countdown-unit {
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 64px;
 }
 
-.journey-point-label {
+.countdown-number {
   font-family: var(--font-serif);
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.35rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--navy);
   line-height: 1;
 }
 
-/* DESKTOP LAYOUT */
-
-/* LEFT GROUP — near the pin (left ~5%, vertically centered) */
-.journey-bg-box .group-a {
-  left: 5%;
-  top: 52%;
-  transform: translateY(-50%);
-  max-width: 250px;
-  text-align: left;
+.countdown-label {
+  font-size: 0.8rem;
+  color: var(--ink-soft, #556677);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.journey-pain-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.journey-pain-list li {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.45;
-  white-space: nowrap;
-}
-
-.journey-pain-list li::before {
-  content: "· ";
-  color: var(--dusty-blue);
-  font-weight: bold;
-}
-
-/* CENTER GROUP — horizontally centered, vertically at low point of first bend (~55-60% down) */
-.journey-bg-box .group-midpoint {
-  left: 50%;
-  top: 58%;
-  transform: translate(-50%, -50%);
-  width: max-content;
-}
-
-.journey-pill-badge {
-  background-color: var(--cream);
+.countdown-sep {
   font-family: var(--font-serif);
-  border-radius: 9999px;
-  border: 1px solid var(--gold);
-  padding: 8px 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--navy);
-  box-shadow: 0 4px 12px rgba(31, 46, 61, 0.05);
-}
-
-/* RIGHT GROUP — near the flag (right ~3%, vertically centered) */
-.journey-bg-box .group-b {
-  right: 3%;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 320px;
-  text-align: left;
-}
-
-.journey-outcome-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.journey-outcome-list li {
-  color: var(--navy);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.45;
-  white-space: nowrap;
-}
-
-.journey-outcome-list li::before {
-  content: "· ";
+  font-size: 3rem;
   color: var(--gold);
-  font-weight: bold;
-}
-
-.journey-gold-arrival {
-  margin-top: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.journey-gold-arrival .gold-line {
-  color: var(--gold);
-  font-size: 17px;
+  line-height: 1.05;
   font-weight: 700;
-  font-family: var(--font-serif);
-  line-height: 1.35;
-  white-space: nowrap;
-}
-
-/* CTA Wrap */
-.journey-cta-wrap {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-
-/* MOBILE LAYOUT (max-width 640px) */
-@media (max-width: 640px) {
-  .journey-container-wrap {
-    margin-top: 2.5rem;
-    padding: 40px 0;
-  }
-
-  .journey-bg-box {
-    background-image: url('images/path-mobile.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 600px;
-    aspect-ratio: 571 / 1024;
-    max-width: 400px;
-  }
-
-  /* TOP GROUP — near the pin, centered horizontally, top ~8% */
-  .journey-bg-box .group-a {
-    left: 50%;
-    top: 8%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 320px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .journey-pain-list {
-    align-items: center;
-  }
-
-  .journey-pain-list li {
-    font-size: 14px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  /* CENTER GROUP — horizontally centered, vertically ~45–50% down */
-  .journey-bg-box .group-midpoint {
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 320px;
-    text-align: center;
-  }
-
-  .journey-pill-badge {
-    padding: 7px 15px;
-    font-size: 0.85rem;
-    white-space: normal;
-    line-height: 1.35;
-  }
-
-  /* BOTTOM GROUP — near the flag, centered horizontally, bottom ~8% */
-  .journey-bg-box .group-b {
-    right: auto;
-    left: 50%;
-    top: auto;
-    bottom: 8%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 320px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .journey-outcome-list {
-    align-items: center;
-  }
-
-  .journey-outcome-list li {
-    font-size: 14px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .journey-gold-arrival {
-    align-items: center;
-    margin-top: 0.6rem;
-  }
-
-  .journey-gold-arrival .gold-line {
-    font-size: 16px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .journey-cta-wrap {
-    margin-top: 1.5rem;
-  }
+  margin-top: 0.1rem;
 }
 
 /* ==========================================================================

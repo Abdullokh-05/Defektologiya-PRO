@@ -939,259 +939,248 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   JOURNEY / PATH VISUAL (A -> B) INSIDE PRICING
+   JOURNEY BLOCK (IMAGE BACKGROUND WITH ABSOLUTE TEXT OVERLAYS)
    ========================================================================== */
-.journey-path-block {
+:root {
+  --ink-soft: #556677;
+}
+
+.journey-container-wrap {
   margin-top: 4.5rem;
-  padding-top: 2rem;
+  padding: 60px 0;
   width: 100%;
 }
 
-.journey-main-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5rem;
+.journey-bg-box {
   position: relative;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  min-height: 380px;
+  aspect-ratio: 1024 / 571;
+  background-image: url('images/path-desktop.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.journey-point {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  max-width: 310px;
-}
-
-.point-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.85rem;
-}
-
-.point-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.point-letter {
-  font-family: var(--font-serif);
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-}
-
-.point-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.point-list li {
-  position: relative;
-  padding-left: 1.15rem;
-  font-size: 0.96rem;
-  line-height: 1.5;
-}
-
-.point-list li::before {
-  content: "·";
+/* Base text group */
+.journey-text-group {
   position: absolute;
-  left: 0.15rem;
-  top: -0.1rem;
-  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.journey-point-label {
+  font-family: var(--font-serif);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
   line-height: 1;
 }
 
-/* Problem state (A) - Muted & soft */
-.journey-point-a .point-list {
-  color: #617385;
+/* DESKTOP LAYOUT */
+
+/* LEFT GROUP — near the pin (left ~5%, vertically centered) */
+.journey-bg-box .group-a {
+  left: 5%;
+  top: 52%;
+  transform: translateY(-50%);
+  max-width: 250px;
+  text-align: left;
 }
 
-.journey-point-a .point-list li::before {
-  color: var(--dusty-blue);
-}
-
-/* Outcome state (B) - Stronger & energized */
-.journey-point-b {
-  max-width: 340px;
-}
-
-.journey-point-b .point-list {
-  color: var(--navy);
-  font-weight: 600;
-}
-
-.journey-point-b .point-list li::before {
-  color: var(--gold);
-}
-
-.journey-arrival-lines {
-  margin-top: 1.25rem;
-  padding-top: 0.75rem;
+.journey-pain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.arrival-line {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1.35;
-}
-
-/* Path connector & Midpoint Waypoint */
-.journey-path-connector {
-  flex: 1.3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 90px;
-  padding-top: 0.5rem;
-}
-
-.path-svg-horizontal {
-  width: 100%;
-  height: 55px;
-  overflow: visible;
-}
-
-.journey-midpoint-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: -12px;
-  position: relative;
-  z-index: 2;
-}
-
-.waypoint-circle {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  background-color: var(--cream);
-  box-shadow: 0 0 0 3px rgba(247, 242, 233, 0.9);
-  flex-shrink: 0;
-}
-
-.midpoint-pill {
-  font-size: 0.95rem;
+.journey-pain-list li {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
   white-space: nowrap;
-  padding: 0.4rem 1.15rem;
-  text-align: center;
 }
 
-.mobile-only {
-  display: none;
+.journey-pain-list li::before {
+  content: "· ";
+  color: var(--dusty-blue);
+  font-weight: bold;
 }
 
-.desktop-only {
+/* CENTER GROUP — horizontally centered, vertically at low point of first bend (~55-60% down) */
+.journey-bg-box .group-midpoint {
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+.journey-pill-badge {
+  background-color: var(--cream);
+  font-family: var(--font-serif);
+  border-radius: 9999px;
+  border: 1px solid var(--gold);
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 4px 12px rgba(31, 46, 61, 0.05);
+}
+
+/* RIGHT GROUP — near the flag (right ~3%, vertically centered) */
+.journey-bg-box .group-b {
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 320px;
+  text-align: left;
+}
+
+.journey-outcome-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
+.journey-outcome-list li {
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.journey-outcome-list li::before {
+  content: "· ";
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.journey-gold-arrival {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.journey-gold-arrival .gold-line {
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 700;
+  font-family: var(--font-serif);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+/* CTA Wrap */
 .journey-cta-wrap {
   text-align: center;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 }
 
-/* Responsive adjustment for Journey Path */
-@media (max-width: 991px) {
-  .journey-main-row {
-    gap: 1rem;
+/* MOBILE LAYOUT (max-width 640px) */
+@media (max-width: 640px) {
+  .journey-container-wrap {
+    margin-top: 2.5rem;
+    padding: 40px 0;
   }
-  
-  .midpoint-pill {
+
+  .journey-bg-box {
+    background-image: url('images/path-mobile.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 600px;
+    aspect-ratio: 571 / 1024;
+    max-width: 400px;
+  }
+
+  /* TOP GROUP — near the pin, centered horizontally, top ~8% */
+  .journey-bg-box .group-a {
+    left: 50%;
+    top: 8%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .journey-pain-list {
+    align-items: center;
+  }
+
+  .journey-pain-list li {
+    font-size: 14px;
     white-space: normal;
     text-align: center;
-    font-size: 0.88rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .journey-path-block {
-    margin-top: 3rem;
   }
 
-  .journey-main-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .journey-point {
-    max-width: 100%;
-    align-items: center;
-  }
-
-  .point-header {
-    justify-content: center;
-  }
-
-  .point-list li {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .point-list li::before {
-    position: static;
-    margin-right: 0.35rem;
-    font-size: 1.2rem;
-  }
-
-  .journey-arrival-lines {
-    align-items: center;
-    text-align: center;
-  }
-
-  .desktop-only {
-    display: none !important;
-  }
-
-  .mobile-only {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    min-height: 110px;
-    margin: 0.5rem 0;
-  }
-
-  .path-svg-vertical {
-    width: 50px;
-    height: 100px;
-    overflow: visible;
-  }
-
-  .journey-midpoint-wrap-mobile {
-    position: absolute;
-    top: 50%;
+  /* CENTER GROUP — horizontally centered, vertically ~45–50% down */
+  .journey-bg-box .group-midpoint {
     left: 50%;
+    top: 48%;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .journey-pill-badge {
+    padding: 7px 15px;
+    font-size: 0.85rem;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  /* BOTTOM GROUP — near the flag, centered horizontally, bottom ~8% */
+  .journey-bg-box .group-b {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 8%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
     align-items: center;
-    gap: 0.4rem;
-    width: max-content;
-    max-width: 90vw;
-    z-index: 2;
+  }
+
+  .journey-outcome-list {
+    align-items: center;
+  }
+
+  .journey-outcome-list li {
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .journey-gold-arrival {
+    align-items: center;
+    margin-top: 0.6rem;
+  }
+
+  .journey-gold-arrival .gold-line {
+    font-size: 16px;
+    white-space: normal;
+    text-align: center;
   }
 
   .journey-cta-wrap {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
 }
 

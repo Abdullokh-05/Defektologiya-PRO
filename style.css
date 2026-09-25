@@ -1011,7 +1011,7 @@ button, input, select, textarea {
 .countdown-wrap {
   background-color: var(--navy);
   text-align: center;
-  padding: 5rem 1rem;
+  padding: 60px 1rem;
   width: 100%;
 }
 

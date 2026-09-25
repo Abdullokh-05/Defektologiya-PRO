@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defektologiya PRO — Israilova Nilufar Abdumajitovna amaliy kursi</title>
+  <meta name="description" content="Bolalar rivojlanishi va nutq buzilishlarini kompleks korreksiya qilish bo'yicha 8 haftalik chuqurlashtirilgan kasbiy kurs. 15 yillik tajribaga asoslangan amaliyot.">
+
+  <!-- Google Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Humanist Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. STICKY HEADER / NAV
+       ========================================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand-title">Defektologiya PRO</a>
+      <nav class="header-nav">
+        <a href="#royxat" class="btn btn-primary btn-sm">Ro'yxatdan o'tish</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         2. HERO SECTION
+         ========================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge-pill badge-cream hero-badge">
+            <span>Amaliy va chuqurlashtirilgan kurs</span>
+          </div>
+          <h1 class="hero-title">
+            Bolalar rivojlanishi va nutq buzilishlarini kompleks korreksiya qilish tizimi
+          </h1>
+          <p class="hero-subtitle">
+            15 yillik amaliy tajriba, nevrologik va pedagogik diagnostikadan to'liq reabilitatsiyagacha bo'lgan bosqichma-bosqich qo'llanma.
+          </p>
+          <div class="hero-cta-wrapper">
+            <a href="#royxat" class="btn btn-primary btn-lg">Ro'yxatdan o'tish</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="arch-frame-wrapper">
+            <div class="arch-frame">
+              <!-- Placeholder for client portrait -->
+              <div class="portrait-placeholder">
+                <div class="placeholder-icon">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <span class="placeholder-tag">TODO: Foto qo'shiladi</span>
+                <span class="placeholder-hint">Israilova Nilufar Abdumajitovna portreti</span>
+              </div>
+            </div>
+            <!-- Floating credibility badge overlapping photo -->
+            <div class="floating-credibility-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">700+ mutaxassis tayyorlagan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stat bar directly under hero -->
+    <section class="hero-stat-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value">8 modul</span>
+            <span class="stat-label">To'liq ta'lim dasturi</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">05.10–30.11</span>
+            <span class="stat-label">8 hafta davomiyligi</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">05.12</span>
+            <span class="stat-label">Sertifikat topshirish</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">700+</span>
+            <span class="stat-label">tayyorlangan mutaxassis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         3. WHO IT'S FOR (KIMLAR UCHUN)
+         ========================================== -->
+    <section class="section section-who" id="kimlar-uchun">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Kurs auditoriyasi</div>
+          <h2 class="section-title">Ushbu kurs kimlar uchun?</h2>
+        </div>
+
+        <div class="audience-grid">
+          <div class="audience-card">
+            <div class="audience-number">01</div>
+            <h3 class="audience-title">Defektolog, logoped</h3>
+            <p class="audience-desc">Amaliyotda yangi va samarali metodikalarni qo'llash, murakkab holatlarda aniq diagnostika qilish va nutq chiqarish ko'nikmalarini oshirish uchun.</p>
+          </div>
+
+          <div class="audience-card">
+            <div class="audience-number">02</div>
+            <h3 class="audience-title">Maxsus pedagog, inklyuziv ta'lim mutaxassislari va talabalar</h3>
+            <p class="audience-desc">Maxsus ehtiyojli bolalar bilan ishlashning zamonaviy ilmiy-amaliy asoslarini chuqur o'rganish va professional tajribani shakllantirish uchun.</p>
+          </div>
+
+          <div class="audience-card">
+            <div class="audience-number">03</div>
+            <h3 class="audience-title">Psixolog</h3>
+            <p class="audience-desc">Bolalar rivojlanishidagi buzilishlar, neyropsixologik yondashuv va kognitiv sohani korreksiya qilish bo'yicha integrativ bilimlarni egallash uchun.</p>
+          </div>
+
+          <div class="audience-card">
+            <div class="audience-number">04</div>
+            <h3 class="audience-title">Farzandi bilan mustaqil ishlamoqchi bo'lgan onalar</h3>
+            <p class="audience-desc">O'z farzandining rivojlanish darajasini to'g'ri tushunish, uy sharoitida tizimli va ilmiy asoslangan mashg'ulotlarni to'g'ri tashkil etish uchun.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         4. ABOUT HER (USTOZ HAQIDA)
+         ========================================== -->
+    <section class="section section-about" id="ustoz">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="arch-frame-wrapper">
+              <div class="arch-frame">
+                <!-- Placeholder for client portrait -->
+                <div class="portrait-placeholder">
+                  <div class="placeholder-icon">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <span class="placeholder-tag">TODO: Foto qo'shiladi</span>
+                  <span class="placeholder-hint">Israilova Nilufar Abdumajitovna</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <div class="badge-pill badge-cream">Kurs muallifi va ustozi</div>
+            <h2 class="about-name">Israilova Nilufar Abdumajitovna</h2>
+            <div class="about-title-line">
+              <span>Defektolog</span> · <span>Logoped</span> · <span>Neyropsixolog</span>
+            </div>
+
+            <ul class="about-bio-list">
+              <li class="bio-item">
+                <span class="bio-bullet"></span>
+                <span>15 yillik amaliyotchi defektolog-logoped</span>
+              </li>
+              <li class="bio-item">
+                <span class="bio-bullet"></span>
+                <span>"Rivoj" integrativ rivojlanish markazi asoschisi va rahbari</span>
+              </li>
+              <li class="bio-item">
+                <span class="bio-bullet"></span>
+                <span>700 dan ortiq mutaxassisni tayyorlagan, 1000 dan ortiq bolaga amaliy yordam bergan</span>
+              </li>
+              <li class="bio-item">
+                <span class="bio-bullet"></span>
+                <span>"Diagnostika", "Nutq chiqarish", "Dispraksiya", "Defektologiya", "Dislaliya" kurslari muallifi</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         5. WHY LEARN WITH HER / WHAT'S INCLUDED
+         ========================================== -->
+    <section class="section section-why-learn" id="nima-kiritilgan">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Kurs afzalliklari</div>
+          <h2 class="section-title">Nega aynan ushbu kursda o'rganish kerak?</h2>
+        </div>
+
+        <!-- Placeholder block: Content not yet approved (3-4 empty value-bullet slots) -->
+        <div class="why-placeholder-block">
+          <div class="todo-callout">
+            <span class="todo-badge">TODO: Kontent tasdiqlanish jarayonida</span>
+            <p class="todo-message">Ushbu bo'lim uchun rasmiy ma'lumotlar tasdiqlangach joylashtiriladi.</p>
+          </div>
+
+          <div class="why-slots-grid">
+            <div class="why-slot-card">
+              <div class="slot-number">01</div>
+              <div class="slot-placeholder-line long"></div>
+              <div class="slot-placeholder-line medium"></div>
+              <span class="slot-tag">TODO: 1-afzallik / qiymat</span>
+            </div>
+            <div class="why-slot-card">
+              <div class="slot-number">02</div>
+              <div class="slot-placeholder-line long"></div>
+              <div class="slot-placeholder-line medium"></div>
+              <span class="slot-tag">TODO: 2-afzallik / qiymat</span>
+            </div>
+            <div class="why-slot-card">
+              <div class="slot-number">03</div>
+              <div class="slot-placeholder-line long"></div>
+              <div class="slot-placeholder-line medium"></div>
+              <span class="slot-tag">TODO: 3-afzallik / qiymat</span>
+            </div>
+            <div class="why-slot-card">
+              <div class="slot-number">04</div>
+              <div class="slot-placeholder-line long"></div>
+              <div class="slot-placeholder-line medium"></div>
+              <span class="slot-tag">TODO: 4-afzallik / qiymat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         6. FORMAT (HOW THE COURSE RUNS)
+         ========================================== -->
+    <section class="section section-format" id="format">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Ta'lim shakllari</div>
+          <h2 class="section-title">O'quv jarayoni qanday o'tadi?</h2>
+        </div>
+
+        <div class="format-grid">
+          <!-- Onlayn format -->
+          <div class="format-card">
+            <div class="format-header">
+              <div class="badge-pill badge-cream">Masofaviy</div>
+              <h3 class="format-name">Onlayn</h3>
+            </div>
+            <ol class="format-steps">
+              <li class="step-item">
+                <span class="step-circle">1</span>
+                <span class="step-text">Darslar "Menta" platformasida joylashadi</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">2</span>
+                <span class="step-text">Har shanba yangi modul ochiladi</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">3</span>
+                <span class="step-text">Hafta davomida kurator nazorati</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">4</span>
+                <span class="step-text">Shanba kuni Zoom orqali jonli efir</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">5</span>
+                <span class="step-text">Savollar Telegram orqali beriladi</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">6</span>
+                <span class="step-text">Joriy modul topshirig'ini bajarish keyingi modulni ochadi</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Oflayn format -->
+          <div class="format-card">
+            <div class="format-header">
+              <div class="badge-pill badge-cream">Jonli amaliyot</div>
+              <h3 class="format-name">Oflayn</h3>
+            </div>
+            <ol class="format-steps">
+              <li class="step-item">
+                <span class="step-circle">1</span>
+                <span class="step-text">Haftada 2 kun nazariy va amaliy mashg'ulot</span>
+              </li>
+              <li class="step-item">
+                <span class="step-circle">2</span>
+                <span class="step-text">Guruh — 20 o'quvchigacha</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         7. CURRICULUM (8 MODULES)
+         ========================================== -->
+    <section class="section section-curriculum" id="dastur">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">O'quv rejasi</div>
+          <h2 class="section-title">Kurs dasturi (8 modul)</h2>
+          <p class="section-subtitle">Har bir modul nazariy va chuqur amaliy keyslarga tayangan</p>
+        </div>
+
+        <div class="curriculum-accordion">
+          <!-- 0-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">0-MODUL</span>
+                <span class="module-title">Kirish qismi</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Ustoz haqida</li>
+                <li>Kursdan foyda olish uchun nimalarga amal qilish kerak</li>
+                <li>Kurs modullari haqida</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 1-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">1-MODUL</span>
+                <span class="module-title">Rivojlanish normasi — kognitiv terapiya</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Bola qaysi sohalarda rivojlanadi?</li>
+                <li>Intellekt nima? Intellektni rivojlanish konsepsiyasi</li>
+                <li>Kognitiv soha komponentlari: xotira, diqqat, idrok va ularni rivojlantirish usullari</li>
+                <li>Tafakkur turlari. Aqliy operatsiyalarni rivojlantirish ketma-ketligi</li>
+                <li>Amaliyot — mashg'ulotlar razborlari</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 2-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">2-MODUL</span>
+                <span class="module-title">Eng muhim ko'nikmalarni rivojlantirish</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Taqlid faoliyati</li>
+                <li>O'yin faoliyati — turlari; bola nega o'ynamaydi va uni qanday o'rgatish mumkin</li>
+                <li>Motivatsiya turlari va bolada motivatsiyani aniqlash</li>
+                <li>Amaliyot — bolada taqlidni rivojlantirish usullari (ABA yondashuv)</li>
+                <li>Amaliyot — motivatsiyani aniqlash va u orqali ta'sir o'tkazish (ABA yondashuv)</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 3-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">3-MODUL</span>
+                <span class="module-title">Nutq sohasi — logopediya</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Nutq komponentlari. Impressiv nutqning rivojlanishi va darajalari</li>
+                <li>Ekspressiv nutqning rivojlanish ontogenezi</li>
+                <li>Kommunikatsiyaning rivojlanish ontogenezi</li>
+                <li>Leksik material tanlashda nimalarga e'tibor berish kerak — YRZ va ARZ</li>
+                <li>Tekis-yassi tasvirni idrok qilishga o'rgatish usullari</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 4-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">4-MODUL</span>
+                <span class="module-title">Diagnostika</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Kognitiv sohani diagnostika qilish — amaliyot</li>
+                <li>Impressiv va ekspressiv nutqni diagnostika qilish (2 dars)</li>
+                <li>Hissiy-emotsional sohani tekshirish — amaliy keys</li>
+                <li>Motor sohani diagnostika qilish</li>
+                <li>Real diagnostika amaliyoti — o'quvchilar muammoni mustaqil aniqlaydi</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 5-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">5-MODUL</span>
+                <span class="module-title">Defektologiyaning klinik asoslari — psixiatr darsi</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>ZPR tashxis turlari, MKB, DSM-5. Bolaning klinik portreti — psixiatr nimani ko'radi</li>
+                <li>Autizm, RAS va spektr buzilishi haqida, bu bolalarning klinik portreti</li>
+                <li>ZPR – RAS – SDVG: farq va o'xshashliklar</li>
+                <li>Differensial diagnostika. Zamonaviy skrining testlar</li>
+                <li>Amaliyot — keys razbor, differensial diagnostika</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 6-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">6-MODUL</span>
+                <span class="module-title">Nutq sohasini rivojlantirish</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Nolinchi darajadan nominativ darajagacha — amaliyot</li>
+                <li>Nominativ daraja — artikulyatsion dispraksiya metodikalari asosida</li>
+                <li>Intellektida muammosi bo'lgan bolalarda nutq chiqarish ketma-ketligi</li>
+                <li>Alaliya bilan ishlash ketma-ketligi</li>
+                <li>Nutqiy-eshituv agneziyasida ishlash ketma-ketligi</li>
+                <li>Dizartriyada ish ketma-ketligi — logopedik massaj</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 7-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">7-MODUL</span>
+                <span class="module-title">RAS bolalar bilan kompleks ishlash</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Hamkor diqqatni rivojlantirish</li>
+                <li>Kommunikatsiyani rivojlantirish</li>
+                <li>ADK — PECS o'rgatish ketma-ketligi</li>
+                <li>RAS bolalarga kompleks yondashuv</li>
+                <li>ABA yondashuv haqida</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 8-MODUL -->
+          <details class="module-card">
+            <summary class="module-header">
+              <div class="module-title-group">
+                <span class="module-badge">8-MODUL</span>
+                <span class="module-title">Sensor integratsiya</span>
+              </div>
+              <span class="module-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="module-body">
+              <ol class="lesson-list">
+                <li>Sensor integratsiya nima?</li>
+                <li>Sensor diyeta va sensor profil</li>
+                <li>Gipersezuvchan bolalar bilan ishlashda nimalarga e'tibor berish kerak</li>
+                <li>Giposezuvchan bolalar bilan ishlashda nimalarga e'tibor berish kerak</li>
+                <li>Amaliy keyslar — ota-onalarga uy sharoitida beriladigan mashqlar</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. TESTIMONIALS (OMITTED AS PER SPEC §4.8)
+         ========================================== -->
+    <!-- TODO: testimonials section, add once 2–3 real quotes exist -->
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         9. CERTIFICATES
+         ========================================== -->
+    <section class="section section-certificates" id="sertifikatlar">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Natija va e'tirof</div>
+          <h2 class="section-title">Sertifikatlar</h2>
+          <p class="section-subtitle">
+            Kurs yakunida Nilufar Abdumajitovna tomonidan 05.12 sanasidagi rasmiy marosimda topshiriladi.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <!-- Oltin -->
+          <div class="cert-card cert-gold">
+            <div class="cert-tier-header">
+              <span class="cert-dot dot-gold"></span>
+              <span class="cert-tier-name">Oltin</span>
+            </div>
+            <p class="cert-tier-desc">a'lo darajada tugatganlarga</p>
+          </div>
+
+          <!-- Kumush -->
+          <div class="cert-card cert-silver">
+            <div class="cert-tier-header">
+              <span class="cert-dot dot-silver"></span>
+              <span class="cert-tier-name">Kumush</span>
+            </div>
+            <p class="cert-tier-desc">o'rta darajada tugatganlarga</p>
+          </div>
+
+          <!-- Bronza -->
+          <div class="cert-card cert-bronze">
+            <div class="cert-tier-header">
+              <span class="cert-dot dot-bronze"></span>
+              <span class="cert-tier-name">Bronza</span>
+            </div>
+            <p class="cert-tier-desc">qoniqarli darajada tugatganlarga</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         10. PRICING (TARIFLAR)
+         ========================================== -->
+    <section class="section section-pricing" id="narxlar">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Ta'lim paketlari</div>
+          <h2 class="section-title">Kurs narxlari</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Onlayn -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Onlayn</h3>
+              <p class="pricing-desc">Menta platformasi + Zoom + Telegram</p>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">2 200 000</span>
+              <span class="price-currency">so'm</span>
+            </div>
+            <div class="pricing-action">
+              <button type="button" class="btn btn-secondary select-track-btn" data-track="onlayn">
+                Tanlash
+              </button>
+            </div>
+          </div>
+
+          <!-- Oflayn -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge-wrapper">
+              <span class="badge-pill badge-gold">Tavsiya etiladi</span>
+            </div>
+            <div class="pricing-header">
+              <h3 class="pricing-title">Oflayn</h3>
+              <p class="pricing-desc">20 o'quvchigacha guruh, haftada 2 kun</p>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">6 000 000</span>
+              <span class="price-currency">so'm</span>
+            </div>
+            <div class="pricing-action">
+              <button type="button" class="btn btn-primary select-track-btn" data-track="oflayn">
+                Tanlash
+              </button>
+            </div>
+          </div>
+
+          <!-- Individual mentorlik -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Individual mentorlik</h3>
+              <p class="pricing-desc">Ustoz–shogird individual dastur</p>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">12 000 000</span>
+              <span class="price-currency">so'm</span>
+            </div>
+            <div class="pricing-action">
+              <button type="button" class="btn btn-secondary select-track-btn" data-track="mentorlik">
+                Tanlash
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hairline-divider"></div>
+
+    <!-- ==========================================
+         11. REGISTRATION (ROYXATDAN O'TISH)
+         ========================================== -->
+    <section class="section section-registration" id="royxat">
+      <div class="container registration-container">
+        <div class="section-header text-center">
+          <div class="badge-pill badge-cream">Arizani qoldirish</div>
+          <h2 class="section-title">Kursga ro'yxatdan o'tish</h2>
+          <p class="section-subtitle">
+            Ma'lumotlaringizni kiriting. Operatorimiz siz bilan bog'lanib barcha savollaringizga javob beradi.
+          </p>
+        </div>
+
+        <div class="form-wrapper">
+          <form id="registrationForm" class="registration-form" novalidate>
+            <!-- Name field -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Ism-familiya <span class="required-star">*</span></label>
+              <input
+                type="text"
+                id="fullName"
+                name="name"
+                class="form-input"
+                placeholder="Ismingiz va familiyangiz"
+                required
+                autocomplete="name"
+              >
+              <span class="field-error" id="nameError"></span>
+            </div>
+
+            <!-- Phone field -->
+            <div class="form-group">
+              <label for="phoneNumber" class="form-label">Telefon raqami <span class="required-star">*</span></label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phone"
+                class="form-input"
+                placeholder="+998 (__) ___-__-__"
+                required
+                autocomplete="tel"
+              >
+              <span class="field-error" id="phoneError"></span>
+            </div>
+
+            <!-- Format track field -->
+            <div class="form-group">
+              <label for="trackSelect" class="form-label">Format <span class="required-star">*</span></label>
+              <div class="select-wrapper">
+                <select id="trackSelect" name="track" class="form-select" required>
+                  <option value="onlayn">Onlayn — 2 200 000 so'm</option>
+                  <option value="oflayn" selected>Oflayn — 6 000 000 so'm</option>
+                  <option value="mentorlik">Individual mentorlik — 12 000 000 so'm</option>
+                </select>
+                <span class="select-arrow">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </div>
+              <span class="field-error" id="trackError"></span>
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-submit-wrapper">
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-block">
+                <span class="btn-text">Arizani yuborish</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Inline Confirmation Message on Success -->
+          <div id="successMessage" class="form-confirmation success-box" style="display: none;">
+            <div class="confirmation-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+            </div>
+            <h3 class="confirmation-title">Rahmat!</h3>
+            <p class="confirmation-text">Arizangiz qabul qilindi — tez orada operator siz bilan bog'lanadi.</p>
+          </div>
+
+          <!-- Error Alert if Submission Fails -->
+          <div id="errorMessage" class="form-confirmation error-box" style="display: none;">
+            <p class="error-text">Xatolik yuz berdi. Iltimos, ma'lumotlarni tekshirib qaytadan urinib ko'ring yoki to'g'ridan-to'g'ri aloqaga chiqing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       12. FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="footer-title">Defektologiya PRO</span>
+        <p class="footer-tagline">Israilova Nilufar Abdumajitovna amaliy kursi</p>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <span class="footer-contact-label">Instagram:</span>
+          <a href="https://instagram.com/nilufar_abdumajitovna" target="_blank" rel="noopener noreferrer" class="footer-link">
+            instagram.com/nilufar_abdumajitovna
+          </a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-label">Telegram:</span>
+          <span class="footer-placeholder-tag">TODO: Telegram kontakt qo'shiladi</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2024–2025 Defektologiya PRO. Barcha huquqlar himoyalangan.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

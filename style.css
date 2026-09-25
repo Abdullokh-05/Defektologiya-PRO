@@ -682,6 +682,29 @@ button, input, select, textarea {
   padding-top: 0.15rem;
 }
 
+/* Item 8 Highlight / Bonus Style */
+.step-item-highlight {
+  background-color: rgba(173, 126, 43, 0.08);
+  border: 1px dashed rgba(173, 126, 43, 0.4);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.25rem;
+}
+
+.step-item-highlight .step-circle {
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(173, 126, 43, 0.25);
+  background-color: #FFFFFF;
+}
+
+.step-item-highlight .step-text {
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 /* ==========================================================================
    7. CURRICULUM (8 MODULES - ACCORDION)
    ========================================================================== */

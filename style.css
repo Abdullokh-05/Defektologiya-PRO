@@ -1068,7 +1068,86 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   11. REGISTRATION SECTION
+   11. FAQ (KO'P SO'RALADIGAN SAVOLLAR)
+   ========================================================================== */
+.section-faq {
+  background-color: var(--cream);
+}
+
+.faq-accordion {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-card {
+  background: var(--cream-surface);
+  border: 1px solid rgba(173, 126, 43, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.faq-card:hover {
+  border-color: var(--gold);
+}
+
+.faq-card[open] {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-header {
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  user-select: none;
+  gap: 1rem;
+}
+
+.faq-header::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+.faq-arrow {
+  color: var(--dusty-blue);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.faq-card[open] .faq-arrow {
+  transform: rotate(180deg);
+  color: var(--gold);
+}
+
+.faq-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(173, 126, 43, 0.1);
+  padding-top: 1.25rem;
+}
+
+.faq-answer {
+  color: #384857;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   12. REGISTRATION SECTION
    ========================================================================== */
 .section-registration {
   background: linear-gradient(180deg, var(--cream) 0%, #EDE5D5 100%);

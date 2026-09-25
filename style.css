@@ -1011,8 +1011,12 @@ button, input, select, textarea {
 .countdown-wrap {
   background-color: var(--navy);
   text-align: center;
-  padding: 60px 1rem;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
   width: 100%;
+  margin-top: 40px;
 }
 
 .countdown-heading {

@@ -342,28 +342,6 @@ button, input, select, textarea {
   transform: scale(1.03);
 }
 
-/* Decorative SVG illustrations around the arch frame */
-.deco-svg {
-  position: absolute;
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.deco-stacker {
-  bottom: -20px;
-  left: -28px;
-}
-
-.deco-cube {
-  top: -18px;
-  right: -22px;
-}
-
-.deco-leaves {
-  top: -14px;
-  left: -24px;
-}
 
 .portrait-placeholder {
   width: 100%;

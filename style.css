@@ -1001,20 +1001,25 @@ button, input, select, textarea {
   width: 100%;
 }
 
+.section-pricing {
+  padding-bottom: 0;
+}
+
 /* ==========================================================================
    COUNTDOWN TIMER
    ========================================================================== */
 .countdown-wrap {
+  background-color: var(--navy);
   text-align: center;
-  padding: 3rem 1rem 2.5rem;
-  --ink-soft: #556677;
+  padding: 5rem 1rem;
+  width: 100%;
 }
 
 .countdown-heading {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
-  color: var(--navy);
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 2rem;
   font-weight: 600;
 }
 
@@ -1037,13 +1042,13 @@ button, input, select, textarea {
   font-family: var(--font-serif);
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--cream);
   line-height: 1;
 }
 
 .countdown-label {
   font-size: 0.8rem;
-  color: var(--ink-soft, #556677);
+  color: #CFDBD2;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

@@ -557,6 +557,18 @@ button, input, select, textarea {
   flex-shrink: 0;
 }
 
+.bio-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.bio-link:hover {
+  text-decoration: underline;
+  color: var(--gold-hover);
+}
+
 /* ==========================================================================
    5. WHY LEARN WITH HER / WHAT'S INCLUDED (DARK NAVY THEME)
    ========================================================================== */

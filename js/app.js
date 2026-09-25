@@ -282,3 +282,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const intervalId = setInterval(tick, 1000);
   })();
 });
+
+// Copyright year — runs immediately, no DOM-ready wait needed
+document.getElementById('copy-year').textContent = new Date().getFullYear();

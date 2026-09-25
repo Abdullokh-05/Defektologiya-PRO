@@ -557,28 +557,39 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   5. WHY LEARN WITH HER / WHAT'S INCLUDED
+   5. WHY LEARN WITH HER / WHAT'S INCLUDED (DARK NAVY THEME)
    ========================================================================== */
+.section-why-learn {
+  background-color: var(--navy);
+  color: var(--cream);
+  padding: 5rem 0;
+}
+
+.section-why-learn .section-title {
+  color: var(--cream);
+}
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem 3.5rem;
 }
 
 .why-card {
-  background: var(--cream-surface);
-  border: 1px solid rgba(173, 126, 43, 0.18);
-  border-radius: 18px;
-  padding: 2.25rem 2rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 2rem 0;
+  box-shadow: none;
+  border-bottom: 1px solid var(--gold-hairline);
   display: flex;
   flex-direction: column;
+  transition: none;
 }
 
 .why-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  transform: none;
+  box-shadow: none;
   border-color: var(--gold);
 }
 
@@ -586,14 +597,14 @@ button, input, select, textarea {
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--gold-light);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .why-card-title {
-  font-size: 1.35rem;
-  color: var(--navy);
+  font-size: 1.4rem;
+  color: var(--gold-light);
   margin-bottom: 0.75rem;
   font-family: var(--font-serif);
   font-weight: 700;
@@ -601,9 +612,9 @@ button, input, select, textarea {
 }
 
 .why-card-desc {
-  font-size: 0.98rem;
-  color: #4A5866;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #CFDBD2;
+  line-height: 1.65;
 }
 
 /* ==========================================================================

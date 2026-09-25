@@ -635,6 +635,76 @@
             </div>
           </div>
         </div>
+
+        <!-- Journey / Path Visual (A -> B) -->
+        <div class="journey-path-block">
+          <div class="journey-main-row">
+            <!-- POINT A -->
+            <div class="journey-point journey-point-a">
+              <div class="point-header">
+                <span class="point-icon point-icon-a" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--navy)">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                  </svg>
+                </span>
+                <span class="point-letter">A</span>
+              </div>
+              <ul class="point-list pain-points">
+                <li>Diagnostika qila olmayman</li>
+                <li>Ishni nimadan boshlashni bilmayman</li>
+                <li>Kam pul topaman</li>
+              </ul>
+            </div>
+
+            <!-- THE PATH & MIDPOINT (Desktop) -->
+            <div class="journey-path-connector desktop-only">
+              <svg class="path-svg-horizontal" viewBox="0 0 340 70" preserveAspectRatio="none" fill="none">
+                <path d="M 10 45 Q 170 5, 330 35" stroke="var(--gold)" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+              </svg>
+              <div class="journey-midpoint-wrap">
+                <span class="waypoint-circle"></span>
+                <span class="badge-pill badge-cream midpoint-pill">2 oylik o'z ustida ishlash — kuniga 1 soatdan</span>
+              </div>
+            </div>
+
+            <!-- THE PATH & MIDPOINT (Mobile) -->
+            <div class="journey-path-connector mobile-only">
+              <svg class="path-svg-vertical" viewBox="0 0 60 120" preserveAspectRatio="none" fill="none">
+                <path d="M 30 5 Q 50 60, 30 115" stroke="var(--gold)" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+              </svg>
+              <div class="journey-midpoint-wrap-mobile">
+                <span class="waypoint-circle"></span>
+                <span class="badge-pill badge-cream midpoint-pill">2 oylik o'z ustida ishlash — kuniga 1 soatdan</span>
+              </div>
+            </div>
+
+            <!-- POINT B -->
+            <div class="journey-point journey-point-b">
+              <div class="point-header">
+                <span class="point-icon point-icon-b" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--gold)">
+                    <path d="M5 2v20M5 4h14l-3 5 3 5H5"/>
+                  </svg>
+                </span>
+                <span class="point-letter">B</span>
+              </div>
+              <ul class="point-list outcome-points">
+                <li>To'g'ri diagnostika qilish</li>
+                <li>Muammoni aniqlash</li>
+                <li>Natijaga yo'naltirilgan korreksion ish</li>
+              </ul>
+              <div class="journey-arrival-lines">
+                <span class="arrival-line">Daromadingiz oshadi</span>
+                <span class="arrival-line">Tavsiya qilinadigan mutaxassisga aylanasiz</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Closing CTA Button -->
+          <div class="journey-cta-wrap">
+            <a href="#royxat" class="btn btn-primary btn-lg">Ro'yxatdan o'tish</a>
+          </div>
+        </div>
       </div>
     </section>
 

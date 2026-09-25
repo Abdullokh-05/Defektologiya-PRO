@@ -8,9 +8,8 @@
 // ==========================================================================
 
 // Supabase Configuration
-// Replace with your real Supabase Project URL and Anon Public Key
-const SUPABASE_URL = window.__SUPABASE_URL__ || "https://your-project.supabase.co";
-const SUPABASE_ANON_KEY = window.__SUPABASE_ANON_KEY__ || "your-anon-key";
+const SUPABASE_URL = window.__SUPABASE_URL__ || "https://bgrawzwhhygvzvngipnj.supabase.co";
+const SUPABASE_ANON_KEY = window.__SUPABASE_ANON_KEY__ || "sb_publishable_8L5A8K3bIG3SBAhwsBEoGA_vcnLktQz";
 
 // Admin Telegram Contact (TODO: add actual admin handle once provided)
 const ADMIN_TELEGRAM_HANDLE = "TODO"; // e.g. "@nilufar_admin"
@@ -21,7 +20,7 @@ if (typeof supabase !== "undefined" && SUPABASE_URL && !SUPABASE_URL.includes("y
   try {
     supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   } catch (err) {
-    console.warn("Supabase initialization skipped (placeholder keys detected):", err);
+    console.warn("Supabase initialization failed:", err);
   }
 }
 

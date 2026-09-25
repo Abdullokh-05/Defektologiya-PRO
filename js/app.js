@@ -11,6 +11,9 @@
 const SUPABASE_URL = window.__SUPABASE_URL__ || "https://bgrawzwhhygvzvngipnj.supabase.co";
 const SUPABASE_ANON_KEY = window.__SUPABASE_ANON_KEY__ || "sb_publishable_8L5A8K3bIG3SBAhwsBEoGA_vcnLktQz";
 
+// Google Sheets Webhook URL (Secondary Backup)
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxOHBHXikU1GTfpkBOtDF8xFh4aCOIt-lu9YOZPR6WNJ73dLuh1diRPURS5hqTCfp6y6g/exec";
+
 // Admin Telegram Contact (TODO: add actual admin handle once provided)
 const ADMIN_TELEGRAM_HANDLE = "TODO"; // e.g. "@nilufar_admin"
 
@@ -178,6 +181,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (insertSuccess) {
+          // Backup submission to Google Sheets (silent fallback, no-cors)
+          try {
+            fetch(GOOGLE_SHEETS_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            }).catch((sheetsErr) => {
+              console.warn("Google Sheets backup submission failed (swallowed):", sheetsErr);
+            });
+          } catch (sheetsErr) {
+            console.warn("Google Sheets dispatch error (swallowed):", sheetsErr);
+          }
+
           // Show confirmation message inline
           form.style.display = "none";
           if (successBox) {

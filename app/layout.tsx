@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Defektologiya PRO — Nilufar Abdumajitovna",
     description: "Mutaxassislar va onalar uchun 8 haftalik amaliy dastur.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
     locale: "uz_UZ",
     type: "website",
   },

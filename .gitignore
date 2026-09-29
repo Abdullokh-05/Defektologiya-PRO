@@ -1,5 +1,24 @@
-# Logs and OS files
+# dependencies
 node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# local AI/design tooling (skills, hooks, reports) — not part of the site
+.claude/
+.impeccable/
+
+# logs and OS files
 .DS_Store
 Thumbs.db
 *.log

@@ -105,7 +105,7 @@ export default function CourseForm({ telegramUrl, serverNow }: { telegramUrl: st
     return (
       <div className="success" role="status">
         <span className="script">Rahmat, {name.trim()}!</span>
-        <p>Arizangiz qabul qilindi. Administrator tez orada siz bilan bogʻlanadi. {startNote(now)}</p>
+        <p>Arizangiz qabul qilindi. Administrator tez orada siz bilan bogʻlanadi.</p>
         <a href={telegramUrl} className="btn btn-outline btn-plain" target="_blank" rel="noopener noreferrer">
           Menejerga Telegramda yozish
         </a>

@@ -23,6 +23,9 @@
   --r-control: 12px; /* buttons, inputs, small inner panels */
   --r-pill: 999px; /* badges, dots, round icons */
 
+  /* Motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
   --display: Antonio, "Arial Narrow", sans-serif;
   --script: Lora, Georgia, serif;
   --serif: Lora, Georgia, serif;
@@ -667,6 +670,41 @@ summary:focus-visible {
 .module details[open] summary::after {
   content: "▴";
 }
+/* Scroll reveal: held invisible until ScrollReveal fades it up (see ScrollReveal.tsx) */
+[data-reveal] {
+  opacity: 0;
+}
+/* Lesson list opens on the same curve as the FAQ; browsers without
+   interpolate-size keep the instant native toggle */
+@supports (interpolate-size: allow-keywords) {
+  .module details {
+    interpolate-size: allow-keywords;
+  }
+  .module details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      block-size 200ms var(--ease-out),
+      opacity 200ms var(--ease-out),
+      content-visibility 200ms allow-discrete;
+  }
+  .module details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the fade, drop the height change */
+  .faq-panel {
+    transition: opacity 200ms ease;
+  }
+  .module details::details-content {
+    transition:
+      opacity 200ms ease,
+      content-visibility 200ms allow-discrete;
+  }
+}
 .module ol:last-child {
   margin-bottom: 12px;
 }
@@ -1260,6 +1298,23 @@ summary:focus-visible {
   flex-shrink: 0;
   width: 20px;
   text-align: center;
+}
+/* Answer panel: the 0fr -> 1fr grid row animates to the content's own height */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 200ms var(--ease-out),
+    opacity 200ms var(--ease-out);
+}
+.faq-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.faq-panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 .faq-a {
   margin: 0 0 20px;

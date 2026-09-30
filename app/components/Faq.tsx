@@ -24,16 +24,20 @@ export default function Faq({ items }: { items: [string, ReactNode][] }) {
                 {isOpen ? "−" : "+"}
               </span>
             </button>
-            {isOpen &&
-              (typeof a === "string" ? (
-                <p className="faq-a" id={`faq-a-${i}`}>
-                  {a}
-                </p>
-              ) : (
-                <div className="faq-a" id={`faq-a-${i}`}>
-                  {a}
-                </div>
-              ))}
+            {/* Kept mounted so the answer can animate open and closed */}
+            <div className="faq-panel" data-open={isOpen} inert={!isOpen}>
+              <div className="faq-panel-inner">
+                {typeof a === "string" ? (
+                  <p className="faq-a" id={`faq-a-${i}`}>
+                    {a}
+                  </p>
+                ) : (
+                  <div className="faq-a" id={`faq-a-${i}`}>
+                    {a}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         );
       })}

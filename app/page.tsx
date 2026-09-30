@@ -18,6 +18,7 @@ import {
 import CourseForm, { StartNote } from "./components/CourseForm";
 import Faq from "./components/Faq";
 import Graduates from "./components/Graduates";
+import ScrollReveal from "./components/ScrollReveal";
 import { Countdown, Tiers } from "./components/Prices";
 import VideoButton from "./components/VideoButton";
 
@@ -356,6 +357,7 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <ScrollReveal />
 
       {/* FOOTER */}
       <footer className="footer">

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const FONTS =
-  "https://fonts.googleapis.com/css2?family=Antonio:wght@200;300;400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap";
+  "https://fonts.googleapis.com/css2?family=Antonio:wght@200;300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap";
 
 export const metadata: Metadata = {
   title: "Defektologiya PRO — Nilufar Abdumajitovna",

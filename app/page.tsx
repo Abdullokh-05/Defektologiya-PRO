@@ -33,6 +33,11 @@ export default function Page() {
       <main>
         {/* HERO */}
         <section className="hero">
+          <div className="hero-light" aria-hidden="true">
+            <span className="l-gold" />
+            <span className="l-green-2" />
+            <span className="l-green" />
+          </div>
           <p className="hero-kicker">
             Mutaxassislar va onalar uchun
             <br />8 haftalik amaliy dastur
@@ -104,13 +109,18 @@ export default function Page() {
         {/* ABOUT */}
         <section className="about">
           <div className="about-grid wrap-wide">
-            <div className="about-photo">
-              <Image src={aboutPhoto} alt="Israilova Nilufar Abdumajitovna" placeholder="blur" sizes="(min-width: 760px) 400px, 300px" />
+            {/* Mobile: one arch card, name over the bottom of the photo. Desktop: photo left, name right. */}
+            <div className="about-card">
+              <div className="about-photo">
+                <Image src={aboutPhoto} alt="Israilova Nilufar Abdumajitovna" placeholder="blur" sizes="(min-width: 760px) 400px, 360px" />
+              </div>
+              <div className="about-head">
+                <span className="kicker">USTOZ</span>
+                <h2 className="about-name">Israilova Nilufar Abdumajitovna</h2>
+                <p className="about-titles">Defektolog · Logoped · Neyropsixolog</p>
+              </div>
             </div>
             <div className="about-body">
-              <span className="kicker">USTOZ</span>
-              <h2 className="about-name">Israilova Nilufar Abdumajitovna</h2>
-              <p className="about-titles">Defektolog · Logoped · Neyropsixolog</p>
               <ul className="about-list">
                 {bio.map((b) => (
                   <li key={b}>
@@ -264,7 +274,7 @@ export default function Page() {
               </div>
               <div className="path-steps">
                 <div className="path-step">
-                  <span className="path-label" style={{ color: "var(--red-soft)" }}>
+                  <span className="path-label" style={{ color: "var(--red-text)" }}>
                     HOZIR
                   </span>
                   <p style={{ color: "var(--muted)" }}>

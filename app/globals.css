@@ -1,25 +1,26 @@
 :root {
+  /* Greens: page, alternating band, raised card */
   --bg: #0d1410;
   --bg-alt: #111a15;
   --card: #17211b;
-  --card-2: #131c17;
-  --ph: #1b2620;
+  /* Creams: primary text, secondary text, fine print */
   --cream: #f3e6d3;
-  --cream-2: #e8dcc8;
-  --muted: #d6ccbc;
-  --muted-2: #a89d8c;
-  --ph-text: #9fb0a3;
-  --line: #4a5a4e;
-  --line-2: #5c6b5f;
+  --muted: #cfc3b0;
+  --faint: #a39988;
+  /* Hairlines and input borders */
+  --line: #56675a;
+  /* Gold: the accent. Buttons, featured borders, numbers, medals, links */
   --gold: #c9a063;
   --gold-dark: #7a5a24;
+  --gold-wash: rgba(201, 160, 99, 0.14);
   --ink: #1a140c;
+  /* Red: "now" state, errors, the play triangle */
   --red: #7e2a22;
-  --red-soft: #d98a7e;
+  --red-text: #d98a7e;
 
   --display: Antonio, "Arial Narrow", sans-serif;
-  --script: "Cormorant Garamond", Georgia, serif;
-  --serif: "Cormorant Garamond", Georgia, serif;
+  --script: Lora, Georgia, serif;
+  --serif: Lora, Georgia, serif;
   --ui: Manrope, "Segoe UI", system-ui, sans-serif;
 }
 
@@ -43,10 +44,10 @@ body {
 }
 
 a {
-  color: #d9b26a;
+  color: var(--gold);
 }
 a:hover {
-  color: #f0cf8e;
+  color: var(--cream);
 }
 
 img {
@@ -138,7 +139,7 @@ p {
 }
 .btn-outline:hover {
   color: var(--cream);
-  background: rgba(201, 160, 99, 0.12);
+  background: var(--gold-wash);
 }
 .btn-plain {
   text-transform: none;
@@ -165,6 +166,9 @@ summary:focus-visible {
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  isolation: isolate; /* the light layers below sit behind the hero's content, not behind the page */
+  overflow: hidden;
   padding: 44px 20px 40px;
   display: flex;
   flex-direction: column;
@@ -172,11 +176,85 @@ summary:focus-visible {
   gap: 18px;
   text-align: center;
 }
+/*
+ * Cinematic light: three large pools of colour, each drifting on its own path and timing,
+ * so they overlap and mix differently every moment. Gold (behind PRO), burgundy, deep green.
+ * The layer fades out at the bottom so the hero melts into the page with no visible edge.
+ */
+.hero-light {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+.hero-light span {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+}
+.hero-light .l-gold {
+  left: 50%;
+  top: 0;
+  margin-left: -310px;
+  background: radial-gradient(circle, rgba(201, 160, 99, 0.3), transparent 65%);
+  animation: drift-gold 13s ease-in-out infinite alternate;
+}
+.hero-light .l-green-2 {
+  left: -180px;
+  top: 38%;
+  background: radial-gradient(circle, rgba(24, 58, 42, 0.7), transparent 65%);
+  animation: drift-green-2 17s ease-in-out infinite alternate;
+}
+.hero-light .l-green {
+  right: -200px;
+  top: 12%;
+  background: radial-gradient(circle, rgba(34, 80, 58, 0.6), transparent 65%);
+  animation: drift-green 11s ease-in-out infinite alternate;
+}
+@keyframes drift-gold {
+  0% { transform: translate(-18%, -10%) scale(0.9); opacity: 0.75; }
+  50% { transform: translate(14%, 8%) scale(1.15); opacity: 1; }
+  100% { transform: translate(-6%, 18%) scale(1); opacity: 0.8; }
+}
+@keyframes drift-green-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(55%, -25%) scale(1.25); }
+  100% { transform: translate(25%, 20%) scale(0.95); }
+}
+@keyframes drift-green {
+  0% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-45%, 30%) scale(0.9); }
+  100% { transform: translate(-20%, -20%) scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-light span {
+    animation: none;
+  }
+}
+/* Film grain and a soft vignette over the light (not over the text) */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(13, 20, 16, 0.7) 100%),
+    linear-gradient(to bottom, transparent 70%, var(--bg)),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
 .hero-kicker {
   font-size: 14px;
   line-height: 1.7;
   letter-spacing: 0.18em;
-  color: var(--cream-2);
+  color: var(--muted);
 }
 .hero-word {
   font-family: var(--display);
@@ -223,7 +301,7 @@ summary:focus-visible {
   margin-left: -140px;
   border-radius: 140px 140px 0 0;
   overflow: hidden;
-  background: var(--ph);
+  background: var(--card);
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
   z-index: 1;
   /* long fade into the page (340px); the cut-out below uses the same curve */
@@ -267,13 +345,13 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8e2e24;
+  color: var(--red);
   cursor: pointer;
   text-decoration: none;
   animation: pulse 2.4s ease-in-out infinite;
 }
 .play:hover {
-  color: #8e2e24;
+  color: var(--red);
 }
 @keyframes pulse {
   0%,
@@ -364,11 +442,11 @@ summary:focus-visible {
   font-family: var(--script);
   font-style: italic;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 1.35;
 }
 .stamp p + p {
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 600;
 }
 @media (min-width: 560px) {
@@ -385,10 +463,10 @@ summary:focus-visible {
     inset: 20px;
   }
   .stamp p {
-    font-size: 30px;
+    font-size: 27px;
   }
   .stamp p + p {
-    font-size: 27px;
+    font-size: 24px;
   }
   .letter .letter-tag {
     --overlap: 56px;
@@ -441,7 +519,7 @@ summary:focus-visible {
 }
 /* ---------- Inner voice: full-width leather band with stitched edges ---------- */
 .voice {
-  --thread: #d8bd86;
+  --thread: var(--gold);
   position: relative;
   padding: 76px 24px;
   display: flex;
@@ -475,14 +553,14 @@ summary:focus-visible {
   bottom: 16px;
 }
 .inner-voice {
-  font-size: 31px;
+  font-size: 28px;
   line-height: 1.3;
   max-width: 560px;
   color: var(--cream);
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 .inner-voice .gold {
-  color: #e6c27e;
+  color: var(--gold);
 }
 @media (min-width: 760px) {
   .voice {
@@ -495,7 +573,7 @@ summary:focus-visible {
     bottom: 20px;
   }
   .inner-voice {
-    font-size: 42px;
+    font-size: 38px;
     max-width: 820px;
   }
 }
@@ -550,13 +628,13 @@ summary:focus-visible {
 }
 .module-outcome {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.4;
 }
 .module details {
   font-family: var(--serif);
-  font-size: 17px;
-  color: var(--muted-2);
+  font-size: 15px;
+  color: var(--faint);
 }
 .module summary {
   display: flex;
@@ -588,7 +666,7 @@ summary:focus-visible {
   color: var(--muted);
 }
 .modules-close {
-  font-size: 27px;
+  font-size: 24px;
   line-height: 1.3;
   max-width: 560px;
 }
@@ -635,7 +713,7 @@ summary:focus-visible {
 .included-lead {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--cream);
 }
 .formats {
@@ -654,7 +732,7 @@ summary:focus-visible {
 }
 .format:nth-child(2) {
   border: 1px solid var(--line);
-  background: var(--card-2);
+  background: var(--bg-alt);
 }
 .format-head {
   display: flex;
@@ -697,7 +775,7 @@ summary:focus-visible {
   gap: 14px;
   align-items: flex-start;
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
 }
 .format-steps li::before {
@@ -718,7 +796,7 @@ summary:focus-visible {
   margin-top: 4px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(201, 160, 99, 0.14);
+  background: var(--gold-wash);
   border: 1px solid var(--gold);
   font-family: var(--ui);
   font-size: 16px;
@@ -750,7 +828,7 @@ summary:focus-visible {
   max-width: 60ch;
   margin-inline: auto;
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.45;
   color: var(--muted);
 }
@@ -767,7 +845,7 @@ summary:focus-visible {
   padding: 20px 8px;
   border-radius: 18px;
   border: 1px solid var(--line);
-  background: var(--card-2);
+  background: var(--bg-alt);
   transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
@@ -910,9 +988,9 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.4;
-  color: var(--cream-2);
+  color: var(--muted);
 }
 .path-mid {
   padding: 14px 16px;
@@ -921,7 +999,7 @@ summary:focus-visible {
   font-family: var(--script);
   font-style: italic;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--gold);
 }
 .pricing h2 {
@@ -937,7 +1015,7 @@ summary:focus-visible {
   padding: 30px 22px;
   border-radius: 22px;
   border: 1px solid var(--line);
-  background: var(--card-2);
+  background: var(--bg-alt);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -983,7 +1061,7 @@ summary:focus-visible {
 }
 .tier-note {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.45;
   color: var(--muted);
   flex-grow: 1;
@@ -1073,7 +1151,7 @@ summary:focus-visible {
   height: 26px;
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 58px;
+  font-size: 52px;
   line-height: 0.9;
   color: var(--gold);
 }
@@ -1082,7 +1160,7 @@ summary:focus-visible {
   margin: 0;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.4;
   color: var(--cream);
   /* safety net: never taller than 9 lines, even if a long review is pasted in */
@@ -1105,7 +1183,7 @@ summary:focus-visible {
   height: 34px;
   border-radius: 999px;
   border: 1.5px solid var(--gold);
-  background: rgba(201, 160, 99, 0.12);
+  background: var(--gold-wash);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1127,7 +1205,7 @@ summary:focus-visible {
 }
 .grad-role {
   font-size: 12px;
-  color: var(--muted-2);
+  color: var(--faint);
 }
 /* ---------- FAQ ---------- */
 .faq {
@@ -1138,10 +1216,10 @@ summary:focus-visible {
   margin-bottom: 28px;
 }
 .faq-list {
-  border-top: 1px solid #c9b899;
+  border-top: 1px solid var(--line);
 }
 .faq-item {
-  border-bottom: 1px solid #c9b899;
+  border-bottom: 1px solid var(--line);
 }
 .faq-q {
   width: 100%;
@@ -1173,7 +1251,7 @@ summary:focus-visible {
 .faq-a {
   margin: 0 0 20px;
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.5;
   color: var(--muted);
 }
@@ -1206,14 +1284,14 @@ summary:focus-visible {
 .field label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--cream-2);
+  color: var(--muted);
 }
 .field input,
 .field select {
   height: 56px;
   padding: 0 16px;
   border-radius: 12px;
-  border: 1px solid var(--line-2);
+  border: 1px solid var(--line);
   background: var(--bg);
   color: var(--cream);
   font-family: inherit;
@@ -1223,7 +1301,7 @@ summary:focus-visible {
   padding: 0 12px;
 }
 .field input::placeholder {
-  color: #8e9a91;
+  color: var(--faint);
 }
 .field input:focus,
 .field select:focus {
@@ -1232,11 +1310,11 @@ summary:focus-visible {
   box-shadow: 0 0 0 3px rgba(201, 160, 99, 0.25);
 }
 .field input[aria-invalid="true"] {
-  border-color: var(--red-soft);
+  border-color: var(--red-text);
 }
 .field-error {
   font-size: 13px;
-  color: var(--red-soft);
+  color: var(--red-text);
 }
 .apply .btn-gold {
   margin-top: 8px;
@@ -1244,14 +1322,14 @@ summary:focus-visible {
 .form-alert {
   padding: 14px 16px;
   border-radius: 12px;
-  border: 1px solid var(--red-soft);
+  border: 1px solid var(--red-text);
   background: rgba(126, 42, 34, 0.28);
   font-size: 15px;
   line-height: 1.5;
-  color: var(--cream-2);
+  color: var(--muted);
 }
 .form-alert strong {
-  color: var(--red-soft);
+  color: var(--red-text);
 }
 .consent {
   max-width: 46ch;
@@ -1259,7 +1337,7 @@ summary:focus-visible {
   text-align: center;
   font-size: 12px;
   line-height: 1.5;
-  color: #8e9a91;
+  color: var(--faint);
 }
 .success {
   padding: 32px 22px;
@@ -1272,7 +1350,7 @@ summary:focus-visible {
   gap: 12px;
 }
 .success .script {
-  font-size: 32px;
+  font-size: 29px;
   color: var(--gold);
 }
 .success p {
@@ -1284,7 +1362,7 @@ summary:focus-visible {
   margin-top: 40px;
   text-align: center;
   font-size: 12px;
-  color: #8e9a91;
+  color: var(--faint);
 }
 
 /* ---------- Facts ---------- */
@@ -1406,7 +1484,7 @@ summary:focus-visible {
 }
 .num-card-text {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.45;
   color: var(--muted);
 }
@@ -1420,12 +1498,19 @@ summary:focus-visible {
   gap: 32px;
   align-items: center;
 }
-.about-photo {
+/* Mobile: the arch becomes a card. The photo fills it; the name sits over a blurred,
+   darkened bottom edge, like a profile card. */
+.about-card {
+  position: relative;
   width: 100%;
-  max-width: 300px;
+  max-width: 360px;
   margin: 0 auto;
+}
+.about-photo {
+  position: relative;
+  width: 100%;
   aspect-ratio: 2 / 3;
-  border-radius: 150px 150px 18px 18px;
+  border-radius: 180px 180px 22px 22px;
   overflow: hidden;
   border: 2px solid var(--gold);
   box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px rgba(201, 160, 99, 0.4);
@@ -1434,6 +1519,43 @@ summary:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* Frosted band: blurs the photo behind the name, fading in from the middle down */
+.about-photo::before,
+.about-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.about-photo::before {
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 52%, #000 78%);
+  mask-image: linear-gradient(to bottom, transparent 52%, #000 78%);
+}
+.about-photo::after {
+  background: linear-gradient(to bottom, transparent 45%, rgba(13, 20, 16, 0.55) 65%, rgba(13, 20, 16, 0.92) 100%);
+}
+.about-head {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.about-head .about-name {
+  font-size: 30px;
+  text-shadow: 0 2px 10px rgba(13, 20, 16, 0.6);
+}
+.about-head .about-titles {
+  font-size: 16px;
 }
 .about-body {
   display: flex;
@@ -1451,7 +1573,7 @@ summary:focus-visible {
 .about-titles {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 21px;
+  font-size: 19px;
   color: var(--gold);
 }
 .about-list {
@@ -1465,7 +1587,7 @@ summary:focus-visible {
   display: flex;
   gap: 14px;
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.4;
 }
 .about-list li::before {
@@ -1514,7 +1636,7 @@ summary:focus-visible {
 }
 .intro-module p {
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.4;
   color: var(--muted);
 }
@@ -1523,8 +1645,8 @@ summary:focus-visible {
 .tier-old {
   margin-bottom: -8px;
   font-size: 16px;
-  color: var(--muted-2);
-  text-decoration-color: var(--red-soft);
+  color: var(--faint);
+  text-decoration-color: var(--red-text);
   text-decoration-thickness: 2px;
 }
 /* Same leather as the inner-voice band, with stitching all the way round */
@@ -1549,7 +1671,7 @@ summary:focus-visible {
   content: "";
   position: absolute;
   inset: 11px;
-  border: 2px dashed #d8bd86;
+  border: 2px dashed var(--gold);
   border-radius: 14px;
   opacity: 0.85;
   filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
@@ -1561,7 +1683,7 @@ summary:focus-visible {
 .countdown-heading {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.3;
   color: var(--cream);
 }
@@ -1593,7 +1715,7 @@ summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #e9c9a0;
+  color: var(--muted);
 }
 .countdown-sep {
   font-family: var(--display);
@@ -1624,7 +1746,7 @@ summary:focus-visible {
 }
 .footer-sub {
   font-size: 14px;
-  color: var(--muted-2);
+  color: var(--faint);
 }
 .footer-links {
   display: grid;
@@ -1643,7 +1765,7 @@ summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--faint);
 }
 /* Phone sits under the name, with a small handset icon */
 .footer-phone {
@@ -1702,6 +1824,72 @@ summary:focus-visible {
   cursor: pointer;
 }
 
+/* ---------- Card light ----------
+ * Every content card gets the same deep-green light as the hero: soft pools of green
+ * over a dark base that slowly drift, so the cards feel lit rather than flat.
+ * Peaks stay dark enough that cream, muted and gold text keep their contrast.
+ */
+.num-card,
+.module,
+.format,
+.format:nth-child(2),
+.cert,
+.tier,
+.tier.featured,
+.grad,
+.success {
+  background-color: #111c16;
+  background-image:
+    radial-gradient(55% 40% at 88% 12%, rgba(46, 72, 58, 0.42), transparent 70%),
+    radial-gradient(50% 38% at 8% 48%, rgba(40, 62, 50, 0.36), transparent 72%),
+    radial-gradient(70% 45% at 72% 100%, rgba(46, 54, 42, 0.4), transparent 72%),
+    linear-gradient(180deg, #13211a 0%, #172820 32%, #0d1511 68%, #101a15 100%);
+  background-size: 260% 260%;
+  background-position: 0% 0%;
+  animation: card-light 12s ease-in-out infinite alternate;
+}
+/* Offsets so neighbouring cards are never lit the same way at the same moment */
+.num-card:nth-child(2n),
+.module:nth-child(2n),
+.format:nth-child(2n),
+.cert:nth-child(2n),
+.tier:nth-child(2n),
+.grad:nth-child(2n) {
+  animation-delay: -4s;
+}
+.num-card:nth-child(3n),
+.module:nth-child(3n),
+.cert:nth-child(3n),
+.tier:nth-child(3n),
+.grad:nth-child(3n) {
+  animation-delay: -8s;
+}
+@keyframes card-light {
+  0% {
+    background-position: 0% 0%;
+  }
+  33% {
+    background-position: 100% 30%;
+  }
+  66% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 90% 90%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .num-card,
+  .module,
+  .format,
+  .cert,
+  .tier,
+  .grad,
+  .success {
+    animation: none;
+  }
+}
+
 /* ---------- Wider screens ---------- */
 @media (min-width: 760px) {
   .hero {
@@ -1720,15 +1908,39 @@ summary:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
+  /* Desktop: back to photo left, name and list right. The card wrapper steps aside. */
   .about-grid {
     grid-template-columns: 380px minmax(0, 1fr);
-    gap: 64px;
+    grid-template-rows: auto auto;
+    gap: 12px 64px;
+  }
+  .about-card {
+    display: contents;
   }
   .about-photo {
-    max-width: none;
+    grid-row: 1 / span 2;
+    border-radius: 190px 190px 18px 18px;
   }
-  .about-name {
+  .about-photo::before,
+  .about-photo::after {
+    display: none;
+  }
+  .about-head {
+    position: static;
+    padding: 0;
+    align-self: end;
+    gap: 12px;
+  }
+  .about-body {
+    align-self: start;
+  }
+  .about-name,
+  .about-head .about-name {
     font-size: 52px;
+    text-shadow: none;
+  }
+  .about-head .about-titles {
+    font-size: 19px;
   }
   .formats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1766,7 +1978,7 @@ summary:focus-visible {
     letter-spacing: 0.08em;
   }
   .module-outcome {
-    font-size: 21px;
+    font-size: 19px;
   }
   .tiers {
     grid-template-columns: repeat(3, minmax(0, 1fr));

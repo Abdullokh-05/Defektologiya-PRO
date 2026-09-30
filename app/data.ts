@@ -1,14 +1,15 @@
 export const contacts = {
   telegram: "https://t.me/Nilufar_Abdumajitovna1", // footer: Nilufar's own Telegram
-  manager: "https://t.me/rivoj_admin", // "Menejerga Telegramda yozish" buttons
+  manager: "https://t.me/nilufarabdumajitovna_admin", // "Menejerga Telegramda yozish" buttons
   telegramHandle: "@Nilufar_Abdumajitovna1",
   instagram: "https://instagram.com/nilufar_abdumajitovna",
   instagramHandle: "@nilufar_abdumajitovna",
   youtube: "https://www.youtube.com/@nilufar_abdumajitovnaa",
   youtubeHandle: "@nilufar_abdumajitovnaa",
   rivojInstagram: "https://www.instagram.com/rivoj_incenter/",
-  phone: "+998974604442",
-  phoneDisplay: "+998 97 460 44 42",
+  // admin phone, shown in the footer
+  phone: "+998774301484",
+  phoneDisplay: "+998 77 430 14 84",
 };
 
 // Tashkent time (UTC+5). Sale prices apply until SALE_END; enrolment closes at ENROL_END.

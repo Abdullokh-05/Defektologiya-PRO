@@ -56,15 +56,27 @@ export default function Page() {
             <Image src={heroCutout} alt="Nilufar Abdumajitovna" className="hero-layer hero-cutout" priority sizes="400px" />
             {VIDEO_URL && <VideoButton videoUrl={VIDEO_URL} />}
           </div>
-          <p className="hero-lead">
-            Qanday qilib 8 haftada bolani toʻgʻri tashxislash va natijali korreksion ish olib borishni oʻrganish mumkin
-          </p>
-          <a href="#narx" className="btn btn-gold">
-            Kursga qoʻshilish
-          </a>
+          {/* Phones: flows under the photo. Desktop (1100px+): left column beside the photo. */}
+          <div className="hero-cta">
+            <p className="hero-lead">
+              Qanday qilib 8 haftada bolani toʻgʻri tashxislash va natijali korreksion ish olib borishni oʻrganish mumkin
+            </p>
+            <a href="#narx" className="btn btn-gold">
+              Kursga qoʻshilish
+            </a>
+          </div>
+          {/* Desktop only: the facts fill the right side of the hero (the strip below is hidden there) */}
+          <dl className="hero-facts">
+            {facts.map((f) => (
+              <div className="hero-fact" key={f.value}>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
-        {/* FACTS */}
+        {/* FACTS — phones and tablets; on desktop they sit inside the hero */}
         <section className="facts" aria-label="Kurs haqida qisqacha">
           <dl className="facts-grid wrap-wide">
             {facts.map((f) => (

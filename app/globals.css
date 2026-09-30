@@ -18,6 +18,11 @@
   --red: #7e2a22;
   --red-text: #d98a7e;
 
+  /* Corner radii: one scale for the whole page (arches are the only exception) */
+  --r-card: 20px; /* cards and panels */
+  --r-control: 12px; /* buttons, inputs, small inner panels */
+  --r-pill: 999px; /* badges, dots, round icons */
+
   --display: Antonio, "Arial Narrow", sans-serif;
   --script: Lora, Georgia, serif;
   --serif: Lora, Georgia, serif;
@@ -105,7 +110,7 @@ p {
   justify-content: center;
   width: 100%;
   height: 64px;
-  border-radius: 14px;
+  border-radius: var(--r-control);
   border: none;
   font-family: var(--ui);
   font-weight: 700;
@@ -338,7 +343,7 @@ summary:focus-visible {
   top: 330px;
   width: 92px;
   height: 92px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 8px solid rgba(201, 160, 99, 0.45);
   background: var(--cream);
   background-clip: padding-box;
@@ -376,6 +381,14 @@ summary:focus-visible {
   position: relative;
   z-index: 5;
   max-width: 480px;
+}
+/* Below 1100px the wrapper is transparent to layout: lead and button flow as hero items. */
+.hero-cta {
+  display: contents;
+}
+/* Desktop-only facts column (see the 1100px block); the .facts strip covers smaller screens. */
+.hero-facts {
+  display: none;
 }
 
 /* ---------- Letter ---------- */
@@ -591,7 +604,7 @@ summary:focus-visible {
 .module {
   position: relative;
   padding: 18px 18px 8px;
-  border-radius: 18px;
+  border-radius: var(--r-card);
   border: 2px solid var(--gold);
   background: var(--card);
   display: grid;
@@ -606,7 +619,7 @@ summary:focus-visible {
 .medal {
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   background: var(--bg);
   border: 3px solid var(--gold);
   box-shadow: 0 0 0 3px #3b2e18;
@@ -723,7 +736,7 @@ summary:focus-visible {
 }
 .format {
   padding: 30px 22px;
-  border-radius: 22px;
+  border-radius: var(--r-card);
   border: 2px solid var(--gold);
   background: var(--card);
   display: flex;
@@ -753,7 +766,7 @@ summary:focus-visible {
 .format-badge {
   order: 2;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 1px solid var(--gold);
   font-size: 12px;
   font-weight: 700;
@@ -783,7 +796,7 @@ summary:focus-visible {
   flex-shrink: 0;
   width: 30px;
   height: 30px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 1.5px solid var(--gold);
   display: flex;
   align-items: center;
@@ -795,7 +808,7 @@ summary:focus-visible {
 .format-steps li.format-highlight {
   margin-top: 4px;
   padding: 14px 16px;
-  border-radius: 14px;
+  border-radius: var(--r-control);
   background: var(--gold-wash);
   border: 1px solid var(--gold);
   font-family: var(--ui);
@@ -843,7 +856,7 @@ summary:focus-visible {
   overflow: hidden;
   isolation: isolate;
   padding: 20px 8px;
-  border-radius: 18px;
+  border-radius: var(--r-card);
   border: 1px solid var(--line);
   background: var(--bg-alt);
   transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -855,7 +868,7 @@ summary:focus-visible {
 .cert-medal {
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -943,7 +956,7 @@ summary:focus-visible {
 .path-dot {
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -994,7 +1007,7 @@ summary:focus-visible {
 }
 .path-mid {
   padding: 14px 16px;
-  border-radius: 12px;
+  border-radius: var(--r-control);
   border: 1px solid var(--line);
   font-family: var(--script);
   font-style: italic;
@@ -1013,7 +1026,7 @@ summary:focus-visible {
 }
 .tier {
   padding: 30px 22px;
-  border-radius: 22px;
+  border-radius: var(--r-card);
   border: 1px solid var(--line);
   background: var(--bg-alt);
   display: flex;
@@ -1033,7 +1046,7 @@ summary:focus-visible {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 6px 16px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   background: var(--gold);
   color: var(--ink);
   font-size: 12px;
@@ -1140,7 +1153,7 @@ summary:focus-visible {
   width: 230px;
   margin: 0;
   padding: 16px 16px 16px;
-  border-radius: 18px;
+  border-radius: var(--r-card);
   border: 1px solid var(--line);
   background: var(--card);
   display: flex;
@@ -1181,7 +1194,7 @@ summary:focus-visible {
   flex-shrink: 0;
   width: 34px;
   height: 34px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 1.5px solid var(--gold);
   background: var(--gold-wash);
   display: flex;
@@ -1290,7 +1303,7 @@ summary:focus-visible {
 .field select {
   height: 56px;
   padding: 0 16px;
-  border-radius: 12px;
+  border-radius: var(--r-control);
   border: 1px solid var(--line);
   background: var(--bg);
   color: var(--cream);
@@ -1321,7 +1334,7 @@ summary:focus-visible {
 }
 .form-alert {
   padding: 14px 16px;
-  border-radius: 12px;
+  border-radius: var(--r-control);
   border: 1px solid var(--red-text);
   background: rgba(126, 42, 34, 0.28);
   font-size: 15px;
@@ -1341,7 +1354,7 @@ summary:focus-visible {
 }
 .success {
   padding: 32px 22px;
-  border-radius: 22px;
+  border-radius: var(--r-card);
   border: 2px solid var(--gold);
   background: var(--card);
   text-align: center;
@@ -1456,7 +1469,7 @@ summary:focus-visible {
   --two-lines: calc(var(--title-size) * (var(--title-lh) + 0.72));
   position: relative;
   padding: 26px 22px;
-  border-radius: 20px;
+  border-radius: var(--r-card);
   border: 1px solid var(--line);
   background: var(--card);
   display: grid;
@@ -1510,7 +1523,7 @@ summary:focus-visible {
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 3;
-  border-radius: 180px 180px 22px 22px;
+  border-radius: 180px 180px var(--r-card) var(--r-card);
   overflow: hidden;
   border: 2px solid var(--gold);
   box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px rgba(201, 160, 99, 0.4);
@@ -1611,7 +1624,7 @@ summary:focus-visible {
   align-items: center;
   gap: 16px;
   padding: 16px 20px;
-  border-radius: 16px;
+  border-radius: var(--r-card);
   border: 1px dashed var(--gold);
   text-align: left;
 }
@@ -1619,7 +1632,7 @@ summary:focus-visible {
   flex-shrink: 0;
   width: 52px;
   height: 52px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
@@ -1654,7 +1667,7 @@ summary:focus-visible {
   position: relative;
   margin-top: 12px;
   padding: 40px 20px;
-  border-radius: 22px;
+  border-radius: var(--r-card);
   background:
     radial-gradient(ellipse at center, transparent 35%, rgba(20, 4, 4, 0.55) 100%),
     linear-gradient(rgba(96, 26, 24, 0.4), rgba(96, 26, 24, 0.4)),
@@ -1672,7 +1685,7 @@ summary:focus-visible {
   position: absolute;
   inset: 11px;
   border: 2px dashed var(--gold);
-  border-radius: 14px;
+  border-radius: calc(var(--r-card) - 11px);
   opacity: 0.85;
   filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
   pointer-events: none;
@@ -1801,7 +1814,7 @@ summary:focus-visible {
   max-width: 900px;
   aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 14px;
+  border-radius: var(--r-card);
   overflow: hidden;
 }
 .modal-box iframe,
@@ -1816,7 +1829,7 @@ summary:focus-visible {
   right: 0;
   width: 40px;
   height: 40px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   border: 1.5px solid var(--gold);
   background: transparent;
   color: var(--cream);
@@ -1919,7 +1932,7 @@ summary:focus-visible {
   }
   .about-photo {
     grid-row: 1 / span 2;
-    border-radius: 190px 190px 18px 18px;
+    border-radius: 190px 190px var(--r-card) var(--r-card);
   }
   .about-photo::before,
   .about-photo::after {
@@ -1956,7 +1969,7 @@ summary:focus-visible {
     flex-direction: column;
     gap: 12px;
     padding: 58px 22px 18px;
-    border-radius: 22px;
+    border-radius: var(--r-card);
     text-align: center;
   }
   .module summary {
@@ -2047,6 +2060,87 @@ summary:focus-visible {
     transform: scale(1.2);
     transform-origin: top center;
     margin-bottom: 112px; /* 560 × 0.2 */
+  }
+}
+
+/* ---------- Desktop hero: three columns ----------
+ * Lead + button on the left, the PRO/photo stage in the middle, facts on the right, so the
+ * free space beside the photo is used and the button is visible on arrival (1366×768 too).
+ * The separate facts strip below is hidden here to avoid showing the same facts twice.
+ */
+@media (min-width: 1100px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: 56px;
+    row-gap: 18px;
+    padding: 56px 48px 24px;
+  }
+  .hero-kicker,
+  .hero-word {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+  .hero-stage {
+    grid-column: 2;
+    grid-row: 3;
+    transform: scale(1.1);
+    margin-bottom: 56px; /* 560 × 0.1 */
+  }
+  .hero-cta {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: center;
+    justify-self: end;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    text-align: left;
+  }
+  .hero-cta .hero-lead {
+    margin-top: 0;
+    max-width: none;
+    font-size: 26px;
+    line-height: 1.4;
+  }
+  .hero-cta .btn {
+    max-width: 340px;
+  }
+  .hero-facts {
+    grid-column: 3;
+    grid-row: 3;
+    align-self: center;
+    justify-self: start;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 32px 40px;
+    text-align: left;
+  }
+  .hero-fact {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    padding-left: 18px;
+    border-left: 1px solid var(--line);
+  }
+  .hero-fact dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .hero-fact dt {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .facts {
+    display: none;
   }
 }
 
